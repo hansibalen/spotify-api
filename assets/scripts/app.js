@@ -93,3 +93,17 @@ const APIController = (function () {
     },
   };
 })();
+
+//UI Module
+
+//This object holds the references to specific HTML selectors
+const UIController = (function () {
+  const DOMElements = {
+    selectGenre: "#select_genre",
+    selectPlaylist: "#select_playlist",
+    buttonSubmit: "#btn_submit",
+    divSongDetail: "#song-detail",
+    hfToken: "#hidden_token",
+    divSonglist: ".song-list",
+  };
+})();
