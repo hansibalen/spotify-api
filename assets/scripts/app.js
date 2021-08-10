@@ -158,5 +158,30 @@ const UIController = (function () {
 
       detailDiv.insertAdjacentHTML("beforeend", html);
     },
+
+    //Reset all details
+    resetTrackDetail() {
+      this.inputField().songDetail.innerHTML = "";
+    },
+
+    resetTracks() {
+      this.inputField().tracks.innerHTML = "";
+      this.resetTrackDetail();
+    },
+
+    resetPlaylist() {
+      this.inputField().playlist.innerHTML = "";
+      this.resetTracks();
+    },
+
+    storeToken(value) {
+      document.querySelector(DOMElements.hfToken).value = value;
+    },
+
+    getStoredToken() {
+      return {
+        token: document.querySelector(DOMElements.hfToken).value,
+      };
+    },
   };
 })();
