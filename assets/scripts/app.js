@@ -5,7 +5,7 @@ const APIController = (function () {
 
   //Private methods
 
-  const getToken = async () => {
+  const _getToken = async () => {
     //JavaScript fetch API method to call the Spotify token endpoint
     const result = await fetch("https://accounts.spotify.com/api/token", {
       method: "POST",
@@ -23,7 +23,7 @@ const APIController = (function () {
   //API Endpoints
 
   //Get a list of genres
-  const getGenres = async (token) => {
+  const _getGenres = async (token) => {
     const result = await fetch(`https://api.spotify.com/v1/browse/categories?locale=sv_US`, {
       method: "GET",
       headers: { Authorization: "Bearer " + token },
@@ -34,7 +34,7 @@ const APIController = (function () {
   };
 
   //Get a lists of playlists for selected genre
-  const getPlaylistsForGenre = async (token, genreID) => {
+  const _getPlaylistsForGenre = async (token, genreID) => {
     //Get only 10 playlists
     const limit = 10;
 
@@ -51,7 +51,7 @@ const APIController = (function () {
   };
 
   //Get tracks for selected playlist
-  const getTracksForPlaylist = async (token, tracksEndPoint) => {
+  const _getTracksForPlaylist = async (token, tracksEndPoint) => {
     //Get only 10 tracks
     const limit = 10;
 
@@ -65,7 +65,7 @@ const APIController = (function () {
   };
 
   //Get track info
-  const getTrack = async (token, trackEndPoint) => {
+  const _getTrack = async (token, trackEndPoint) => {
     const result = await fetch(`${trackEndPoint}`, {
       method: "GET",
       headers: { Authorization: "Bearer" + token },
@@ -77,19 +77,19 @@ const APIController = (function () {
 
   return {
     getToken() {
-      return getToken();
+      return _getToken();
     },
     getGenres(token) {
-      return getGenres(token);
+      return _getGenres(token);
     },
     getPlaylistsForGenre(token, genreId) {
-      return getPlaylistsForGenre(token, genreId);
+      return _getPlaylistsForGenre(token, genreId);
     },
     getTracksForPlaylist(token, tracksEndPoint) {
-      return getTracksForPlaylist(token, tracksEndPoint);
+      return _getTracksForPlaylist(token, tracksEndPoint);
     },
     getTrack(token, trackEndPoint) {
-      return getTrack(token, trackEndPoint);
+      return _getTrack(token, trackEndPoint);
     },
   };
 })();
