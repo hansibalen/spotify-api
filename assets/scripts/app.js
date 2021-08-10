@@ -106,4 +106,57 @@ const UIController = (function () {
     hfToken: "#hidden_token",
     divSonglist: ".song-list",
   };
+
+  //Public methods
+  return {
+    //This method gets the input fields
+    inputField() {
+      return {
+        genre: document.querySelector(DOMElements.selectGenre),
+        playlist: document.querySelector(DOMElements.selectPlaylist),
+        tracks: document.querySelector(DOMElements.divSonglist),
+        submit: document.querySelector(DOMElements.buttonSubmit),
+        songDetail: document.querySelector(DOMElements.songDetail),
+      };
+    },
+
+    //This method creates list options for the genres
+    createGenre(text, value) {
+      const html = `<option value="${value}">${text}</option>`;
+      document.querySelector(DOMElements.selectGenre).insertAdjacentHTML("beforeend", html);
+    },
+
+    //This method creates list options for the playlists of specified genre
+    createPlaylist(text, value) {
+      const html = `<option value="${value}">${text}</option>`;
+      document.querySelector(DOMElements.selectPlaylist).insertAdjacentHTML("beforeend", html);
+    },
+
+    //This method creates list of tracks of specified playlist
+    createTrack(id, name) {
+      const html = `<a href="#" class="list-group-item list-group-item-action list-group-item-light" id="${id}">${name}</a>`;
+      document.querySelector(DOMElements.divSonglist).insertAdjacentHTML("beforeend", html);
+    },
+
+    //This method creates a div which stores info for selected track
+    createTrackDetail(img, title, artist) {
+      const detailDiv = document.querySelector(DOMElements.divSongDetail);
+      //Div needs to be cleared everytime a new track is selected
+      detailDiv.innerHTML = "";
+
+      const html = `
+            <div class="row col-sm-12 px-0">
+                <img src="${img}" alt="">        
+            </div>
+            <div class="row col-sm-12 px-0">
+                <label for="Genre" class="form-label col-sm-12">${title}:</label>
+            </div>
+            <div class="row col-sm-12 px-0">
+                <label for="artist" class="form-label col-sm-12">By ${artist}:</label>
+            </div> 
+            `;
+
+      detailDiv.insertAdjacentHTML("beforeend", html);
+    },
+  };
 })();
