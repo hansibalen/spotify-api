@@ -3,6 +3,14 @@ h1 {
   text-align: center;
 }
 
+/* Main page styling */
 .form-group {
   margin-right: 10px;
+}
+
+.search-button {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
 }
