@@ -1,7 +1,7 @@
 const APIController = (function () {
   //Values that you can get from Spotify for Developers
-  const clientId = " ";
-  const clientSecret = " ";
+  const clientId = "";
+  const clientSecret = "";
 
   //Private methods
 
@@ -185,3 +185,79 @@ const UIController = (function () {
     },
   };
 })();
+
+//APP Module, utilizes both API and UI
+
+const APPController = (function (UICtrl, APICtrl) {
+  const DOMInputs = UICtrl.inputField();
+
+  //On page load, load genres
+  const loadGenres = async () => {
+    //Get the token
+    const token = await APICtrl.getToken();
+    //Store token on page
+    UICtrl.storeToken(token);
+    //Get genres
+    const genres = await APICtrl.getGenres(token);
+    //Populate the element which stores the genres
+    genres.forEach((element) => UICtrl.createGenre(element.name, element.id));
+  };
+
+  //On genre change event listener
+  DOMInputs.genre.addEventListener("change", async () => {
+    //Playlist and subsequent elements will clear on genre change
+    UICtrl.resetPlaylist();
+    //Get token that is stored on page load
+    const token = UICtrl.getStoredToken().token;
+    //Get the genre select field
+    const genreSelect = UICtrl.inputField().genre;
+    //Get genre ID
+    const genreId = genreSelect.options[genreSelect.selectedIndex].value;
+    //Get playlist from selected genre
+    const playlist = await APICtrl.getPlaylistsForGenre(token, genreId);
+    //Create playlist
+    playlist.forEach((p) => UICtrl.createPlaylist(p.name, p.tracks.href));
+  });
+
+  //Button click event listener
+  DOMInputs.submit.addEventListener("click", async (e) => {
+    //Prevent page refresh
+    e.preventDefault();
+    //Tracks will clear on playlist change
+    UICtrl.resetTracks();
+    //Get token
+    const token = UICtrl.getStoredToken().token;
+    //Get playlist
+    const playlistSelect = UICtrl.inputField().playlist;
+    //Get playlist track field
+    const tracksEndPoint = playlistSelect.options[playlistSelect.selectedIndex].value;
+    //Get tracks of selected playlist
+    const tracks = await APICtrl.getTracksForPlaylist(token, tracksEndPoint);
+    //Create track list
+    tracks.forEach((el) => UICtrl.createTrack(el.track.href, el.track.name));
+  });
+
+  //Track selection event listener
+  DOMInputs.tracks.addEventListener("click", async (e) => {
+    //Prevent page refresh
+    e.preventDefault();
+
+    UICtrl.resetTrackDetail();
+    //Get token
+    const token = UICtrl.getStoredToken().token;
+    //Get track field
+    const trackEndpoint = e.target.id;
+    //Get selected track
+    const track = await APICtrl.getTrack(token, trackEndpoint);
+    //Render track details
+    UICtrl.createTrackDetail(track.album.images[2].url, track.name, track.artists[0].name);
+  });
+
+  return {
+    init() {
+      loadGenres();
+    },
+  };
+})(UIController, APIController);
+
+APPController.init();
