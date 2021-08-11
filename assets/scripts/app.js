@@ -60,7 +60,7 @@ const APIController = (function () {
       headers: { Authorization: "Bearer " + token },
     });
 
-    const data = result.json();
+    const data = await result.json();
     return data.items;
   };
 
@@ -116,7 +116,7 @@ const UIController = (function () {
         playlist: document.querySelector(DOMElements.selectPlaylist),
         tracks: document.querySelector(DOMElements.divSonglist),
         submit: document.querySelector(DOMElements.buttonSubmit),
-        songDetail: document.querySelector(DOMElements.divsongDetail),
+        songDetail: document.querySelector(DOMElements.divSongDetail),
       };
     },
 
