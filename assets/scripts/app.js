@@ -96,8 +96,8 @@ const APIController = (function () {
 
 //UI Module
 
-//This object holds the references to specific HTML selectors
 const UIController = (function () {
+  //This object holds the references to specific HTML selectors
   const DOMElements = {
     selectGenre: "#select_genre",
     selectPlaylist: "#select_playlist",
