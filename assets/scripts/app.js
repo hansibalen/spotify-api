@@ -34,7 +34,7 @@ const APIController = (function () {
   };
 
   //Get a lists of playlists for selected genre
-  const _getPlaylistsForGenre = async (token, genreID) => {
+  const _getPlaylistsForGenre = async (token, genreId) => {
     //Get only 10 playlists
     const limit = 10;
 
@@ -68,7 +68,7 @@ const APIController = (function () {
   const _getTrack = async (token, trackEndPoint) => {
     const result = await fetch(`${trackEndPoint}`, {
       method: "GET",
-      headers: { Authorization: "Bearer" + token },
+      headers: { Authorization: "Bearer " + token },
     });
 
     const data = await result.json();
@@ -116,7 +116,7 @@ const UIController = (function () {
         playlist: document.querySelector(DOMElements.selectPlaylist),
         tracks: document.querySelector(DOMElements.divSonglist),
         submit: document.querySelector(DOMElements.buttonSubmit),
-        songDetail: document.querySelector(DOMElements.songDetail),
+        songDetail: document.querySelector(DOMElements.divsongDetail),
       };
     },
 
