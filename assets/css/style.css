@@ -43,6 +43,11 @@ img {
     margin-top: 2rem;
     display: block;
     text-align: center;
+    align-items: center;
+  }
+
+  img {
+    margin-left: 0rem;
   }
 
   .song-list,
