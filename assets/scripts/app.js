@@ -1,7 +1,9 @@
 const APIController = (function () {
-  //Values that you can get from Spotify for Developers
-  const clientId = "";
-  const clientSecret = "";
+  /* Values that you can get from Spotify for Developers.
+  I'm well aware that environment variables should be hidden, but I
+  can't really do that since I'm working purely on client-side.*/
+  const clientId = "41490910527142b78c10c85bf2bd8b46";
+  const clientSecret = "4181822e26de461b975a6243241e25af";
 
   //Private methods
 
