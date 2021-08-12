@@ -14,3 +14,34 @@ h1 {
   align-items: center;
   width: 100%;
 }
+
+.list-group {
+  width: 97%;
+}
+
+#song-detail {
+  margin: 10rem 0 0 10rem;
+}
+
+img {
+  width: 40%;
+  margin-left: 1rem;
+}
+
+/* Media queries */
+
+@media screen and (max-width: 480px) {
+  .list-group {
+    width: 93%;
+  }
+
+  #song-detail {
+    margin: 0 0 0 0;
+  }
+
+  .song-info {
+    margin-top: 2rem;
+    display: block;
+    text-align: center;
+  }
+}
