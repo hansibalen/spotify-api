@@ -44,4 +44,11 @@ img {
     display: block;
     text-align: center;
   }
+
+  .song-list,
+  .form-group {
+    display: block;
+    align-items: center;
+    margin-left: 1rem;
+  }
 }
