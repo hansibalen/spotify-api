@@ -152,7 +152,7 @@ const UIController = (function () {
                 <label for="Genre" class="form-label col-sm-12">${title}</label>
             </div>
             <div class="row col-sm-12 px-0">
-                <label for="artist" class="form-label col-sm-12">By ${artist}: </label>
+                <label for="artist" class="form-label col-sm-12">By: ${artist} </label>
             </div> 
             `;
 
