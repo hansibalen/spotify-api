@@ -1,12 +1,11 @@
 # Spotify API
 
 A Spotify API, which fetches genres, playlists and songs.\
-[Live site](spotify-api-js.netlify.app)
+[Live site](https://spotify-api-js.netlify.app/)
 
 ## Description
 
-I made a Spotify API, where you can choose from a list of different genres and from that genre, you get different playlists.\
-Subsequently, you get a song list from the selected playlist and choosing a song will give you some song information.\
+I made a Spotify API, where you can choose from a list of different genres and from that genre, you get different playlists. Subsequently, you get a song list from the selected playlist and choosing a song will give you some song information.\
 To achieve this, I followed the module pattern (Pre-ES6) coding strategy, which is great for separating the concerns in the code structure.\
 I created three modules, one for the API, one for the UI and one for the app itself.
 
