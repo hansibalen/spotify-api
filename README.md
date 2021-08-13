@@ -17,14 +17,12 @@ On this module, I also added API endpoints for each type of data that will be pu
 Since the methods for the API endpoints are private, I return the methods that I want exposed to the outside scope, so they can be used later on.
 
 The second module is the UI module, which will help to populate select lists and create change events, in order for them to interact with the API data.\
-I created an object which holds the references of all HTML selectors. After that, I added public methods which will help to populate the lists with the\
-API data. Here is where genres, playlists, song lists and song details are generated with the help of those public methods.\
+I created an object which holds the references of all HTML selectors. After that, I added public methods which will help to populate the lists with the API data.\
+Here is where genres, playlists, song lists and song details are generated with the help of those public methods.\
 The objects here will be used outside this module, by attaching event listeners to them.
 
 The last module is the APP module, which will make possible for the API and the UI module to interact with each other.\
-Since my approach was separation of concerns, the API module is only focused on the API functionality and the UI module\
-is only focused on the UI aspect, the APP module will make the API and UI module handle the retreiving of Spotify data\
-and populate the UI fields with that data.
+Since my approach was separation of concerns, the API module is only focused on the API functionality and the UI module is only focused on the UI aspect, the APP module will make the API and UI module handle the retreiving of Spotify data and populate the UI fields with that data.
 
 ## Installation
 
