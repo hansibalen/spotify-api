@@ -6,8 +6,7 @@ A Spotify API, which fetches genres, playlists and songs.\
 ## Description
 
 I made a Spotify API, where you can choose from a list of different genres and from that genre, you get different playlists. Subsequently, you get a song list from the selected playlist and choosing a song will give you some song information.\
-To achieve this, I followed the module pattern (Pre-ES6) coding strategy, which is great for separating the concerns in the code structure.\
-I created three modules, one for the API, one for the UI and one for the app itself.
+To achieve this, I followed the module pattern (Pre-ES6) coding strategy, which is great for separating the concerns in the code structure. I created three modules, one for the API, one for the UI and one for the app itself.
 
 The first module is the API module, where I fetch the API method to call the Spotify token endpoint.\
 I know that environment variables should be hidden, but, for the sake of hosting a functioning demo\
