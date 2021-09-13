@@ -3,6 +3,11 @@
 A Spotify API, which fetches genres, playlists and songs.\
 [Live site](https://spotify-api-js.netlify.app/)
 
+## Table of content
+
+- [Description](#description)
+- [Installation](#installation)
+
 ## Description
 
 I made a Spotify API, where you can choose from a list of different genres and from that genre, you get different playlists. Subsequently, you get a song list from the selected playlist and choosing a song will give you some song information.\
